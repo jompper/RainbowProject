@@ -34,6 +34,7 @@ CREATE TABLE projects (
 	id SERIAL PRIMARY KEY,
 	customer_id INT NOT NULL REFERENCES customers(id),
 	priority_id INT NOT NULL REFERENCES priorities(id),
+	status_id INT NOT NULL REFERENCES statuses(id),
 	due_date TIMESTAMP,
 	name VARCHAR(50) NOT NULL,
 	description TEXT,
