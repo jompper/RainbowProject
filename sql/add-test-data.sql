@@ -7,3 +7,4 @@ INSERT INTO projects (customer_id, priority_id, name, description) VALUES (1, 1,
 INSERT INTO tasks (project_id, priority_id, status_id, due_date, hour_estimate, name, description) VALUES (1,2,2,'2014-01-26',2,'Tietokanta','Toteutetaan järjestelmään tarvittava tietokanta'); 
 INSERT INTO project_comments (user_id, project_id, title, comment) VALUES (2,1,'Jatkuu', 'Projektiin on tulossa lisää tehtäviä seuraavien viikkojen aikana, tämä projekti on TOP-PRIORITY');
 INSERT INTO user_tasks (user_id, task_id) VALUES (2, 1);
+INSERT INTO user_task_hours (user_id, task_id, start_time, end_time, description) VALUES (1,1, '2014-01-26 14:00', '2014-01-26 18:00', 'Tietokanta + kaavioita + suunnittelua');

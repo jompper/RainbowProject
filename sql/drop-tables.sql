@@ -1,3 +1,4 @@
+DROP TABLE user_task_hours;
 DROP TABLE user_tasks;
 DROP TABLE task_comments;
 DROP TABLE project_comments;

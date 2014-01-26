@@ -76,3 +76,13 @@ CREATE TABLE user_tasks (
 	task_id INT NOT NULL REFERENCES tasks(id),
 	UNIQUE(user_id, task_id)
 );
+
+CREATE TABLE user_task_hours (
+	id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(id),
+	task_id INT NOT NULL REFERENCES tasks(id),
+	start_time TIMESTAMP NOT NULL,
+	end_time TIMESTAMP NOT NULL DEFAULT current_timestamp,
+	description TEXT NOT NULL,
+	UNIQUE(user_id, task_id, start_time, description)
+);
