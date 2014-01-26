@@ -1,6 +1,6 @@
 CREATE TABLE roles (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(50) NOT NULL UNIQUE
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL UNIQUE
 );
 
 
@@ -9,7 +9,8 @@ CREATE TABLE users (
 	role_id INT NOT NULL REFERENCES roles(id),
 	username VARCHAR(50) NOT NULL UNIQUE,
 	password VARCHAR(255) NOT NULL,
-	full_name VARCHAR(255) NOT NULL
+	full_name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
 );
 
 CREATE TABLE priorities (
@@ -27,7 +28,9 @@ CREATE TABLE customers (
 	id SERIAL PRIMARY KEY,
 	priority_id INT REFERENCES priorities(id),
 	name VARCHAR(255) NOT NULL,
-	business_id VARCHAR(20) NOT NULL UNIQUE
+	business_id VARCHAR(20) NOT NULL UNIQUE,
+	email VARCHAR(255),
+	phone VARCHAR(50)
 );
 
 CREATE TABLE projects (
