@@ -1,0 +1,10 @@
+DROP TABLE user_tasks;
+DROP TABLE task_comments;
+DROP TABLE project_comments;
+DROP TABLE tasks;
+DROP TABLE projects;
+DROP TABLE customers;
+DROP TABLE statuses;
+DROP TABLE priorities;
+DROP TABLE users;
+DROP TABLE roles;
