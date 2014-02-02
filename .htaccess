@@ -1,0 +1,10 @@
+RewriteEngine On
+#RewriteBase /rainbow
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/([^/]+) index.php?controller=$1&action=$2 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+) index.php?controller=$1 [L,QSA]
