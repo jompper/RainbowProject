@@ -1,6 +1,8 @@
 <?php
 class MainController {
 	public function actionIndex(){
-		render('index');
+		$user = getUser();
+		$tasks = $user->getTasks();
+		render('index', array('user' => $user, 'tasks' => $tasks));
 	}
 }

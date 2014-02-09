@@ -14,9 +14,19 @@
 		if($dbh === null){
 			$dbh = new PDO('pgsql:');
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$dbh->query("SET NAMES 'UTF8'");
 		}
 
 		return $dbh;
+	}
+
+	function notice($notice){
+		$_SESSION['notice'] = $notice;
+	}
+
+	function redirect($controller="", $action = "", $get=""){
+		header("Location: " . URL . "{$controller}/{$action}/{$get}");
+		exit;
 	}
 
 	function getUser(){

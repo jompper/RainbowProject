@@ -28,14 +28,21 @@
 
       <div class="masthead">
 		<a class="btn btn-success navbar-right" href="<?=URL?>login/logout/">Kirjaudu ulos</a>
-		<h3 class="text-muted">Rainbow Project</h3>
+		<h3 class="text-muted"><a href="<?=URL?>">Rainbow Project</a></h3>
 		<ul class="nav nav-justified">
-          <li class="active"><a href="#">Etusivu</a></li>
+          <li><a href="<?=URL?>">Etusivu</a></li>
           <li><a href="#">Projektit</a></li>
           <li><a href="#">Asiakkaat</a></li>
-          <li><a href="#">Käyttäjät</a></li>
+          <li><a href="<?=URL?>user/">Käyttäjät</a></li>
         </ul>
       </div>
+	  <?php if (!empty($_SESSION['notice'])): ?>
+	  <hr/>
+      <div class="col-lg-6 alert alert-success">
+		<?php echo $_SESSION['notice']; ?>
+		<?php unset($_SESSION['notice']); ?>
+	  </div>
+	  <?php endif; ?>
 	  
 	  <?php if (!empty($data->error)): ?>
 		<div class="alert alert-danger">Virhe! <?php echo $data->error; ?></div>
