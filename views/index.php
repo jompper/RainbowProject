@@ -3,7 +3,7 @@
         <h1>Tervetuloa <?=$data->user->getUsername()?>!</h1>
         <p class="lead">Sinulla on <?=count($data->tasks)?> tehtävää, joista 0 on kiireellisiä.</p>
       </div>
-
+	  <?php if(count($data->tasks)): ?>
       <div class="row">
         <div class="col-lg-12">
           <h2>Tehtäväluettelo</h2>
@@ -38,3 +38,10 @@
 		  </div>
         </div>
       </div>
+	  <?php else: ?>
+	  <div class="row">
+        <div class="col-lg-12">
+			Sinulla ei ole tehtäviä.
+		</div>
+	  </div>
+	  <?php endif; ?>

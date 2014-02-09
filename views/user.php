@@ -4,9 +4,9 @@
 	</div>
 </div>
 <hr/>
-
 <div class="row">
 	<div class="col-lg-8">
+	  <?php if(count($data->user->getTasks())): ?>
 	  <div class="table-responsive">
 		<table class="table table-striped table-bordered table-hover table-condensed">
 		  <thead>
@@ -36,6 +36,9 @@
 		  </tbody>
 		</table>
 	  </div>
+	  <?php else: ?>
+		Ei tehtäviä
+	  <?php endif; ?>
 	</div>
 	<div class="col-lg-4">
 		<strong>Nimi:</strong> <?=$data->user->getFullName()?><br/>
@@ -46,9 +49,3 @@
 </div>
 
 <hr/>
-
-<div class="row">
-	<div class="col-lg-12">
-	  
-	</div>
-</div>
