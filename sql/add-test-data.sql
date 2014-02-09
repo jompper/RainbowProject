@@ -1,5 +1,5 @@
 INSERT INTO roles (name) VALUES ('Administrator'),('Basic');
-INSERT INTO users (role_id, username, password, full_name, email) VALUES (1, 'admin', '', 'Puuha Pete','yrjo@yllapitaja.fi'), (2, 'basic', '', 'T. Tavallinen', 'tero@tavallinen.fi');
+INSERT INTO users (role_id, username, password, full_name, email) VALUES (1, 'admin', '1a583c12263cae4f81fa4a6127769343d315cab82cc5fcac7282924bfef2b680ef55f4d68e7e71b28be43d99872640e31180aaee1ee5fe7058c1b17cd81c6466', 'Puuha Pete','yrjo@yllapitaja.fi'), (2, 'basic', '9e5ca7d69288fa5efbf54d92de383234b6c5972725f7f713e60db6ab3d2b99c5affb900112cc4fc9c4fd83871261b53cd0c91a0b5b1a195eb7354dab72cb6f89', 'T. Tavallinen', 'tero@tavallinen.fi');
 INSERT INTO priorities (priority, name) VALUES (5, 'Kiireellinen'), (3,'Normaali'), (1, 'Alhainen');
 INSERT INTO statuses (name) VALUES ('Valmis'), ('Työn alla'), ('Jonossa'), ('Odottaa'), ('Keskeytetty');
 INSERT INTO customers (priority_id, name, business_id, email, phone) VALUES (1,'Testikäs Oy', '1337133-7', 'testi@testikas.fi', '133 - 713 3713');
