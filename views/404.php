@@ -1,2 +1,2 @@
-﻿<h1>The page page you are looking for couldn't be found</h1>
+﻿<h1>Etsimääsi sivustoa ei löytynyt</h1>
 <a href="<?=URL?>main">Etusivu</a>

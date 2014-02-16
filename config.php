@@ -10,7 +10,7 @@ define('ROOT_PATH', dirname(__FILE__));
 define('URL', dirname($_SERVER['PHP_SELF']) . "/");
 
 define('CONTROLLER_PATH', ROOT_PATH . DS . 'controllers' . DS);
-define('MODEL_PATH', ROOT_PATH . DS . 'libs/models' . DS);
+define('MODEL_PATH', ROOT_PATH . DS . 'models' . DS);
 define('VIEW_PATH', ROOT_PATH . DS . 'views' . DS);
 
 define('DEFAULT_CONTROLLER', 'main');

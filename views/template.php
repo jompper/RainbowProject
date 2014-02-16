@@ -7,7 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $data->title; ?></title>
+    <title>
+	<?php if(isset($data->title)): ?>
+		<?= $data->title; ?>
+	<?php else: ?>
+		RainbowProject
+	<?php endif; ?>
+	</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?=URL?>css/bootstrap.css" rel="stylesheet">
