@@ -1,6 +1,12 @@
 <div class="row">
 	<div class="col-lg-offset-2 col-lg-10">
-	  <h2><?=$data->title?></h2>
+	  <h2>
+		<?php if($data->edit): ?>
+		Muokkaa - <?= $data->user->getUsername(); ?>
+		<?php else: ?>
+		Uusi asiakas
+		<?php endif; ?>
+	  </h2>
 	</div>
 </div>
 <?php if(!empty($data->errors)): ?>
@@ -15,12 +21,14 @@
 <div class="row">
 	<div class="col-lg-12">	
 		<form method="post" class="form-horizontal" role="form">
+		  <?php if(!$data->edit): ?>
 		  <div class="form-group">
 			<label for="käyttäjätunnus" class="col-sm-2 control-label">Käyttäjätunnus</label>
 			<div class="col-sm-10">
 				<input type="text" name="username" class="form-control" id="käyttäjätunnus" placeholder="Käyttäjätunnus" value="<?=$data->user->getUsername()?>" required autofocus>
 			</div>
 		  </div>
+		  <?php endif; ?>
 		  <div class="form-group">
 			<label for="salasana" class="col-sm-2 control-label">Salasana</label>
 			<div class="col-sm-10">

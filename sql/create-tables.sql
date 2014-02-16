@@ -38,7 +38,7 @@ CREATE TABLE projects (
 	customer_id INT NOT NULL REFERENCES customers(id),
 	priority_id INT NOT NULL REFERENCES priorities(id),
 	status_id INT NOT NULL REFERENCES statuses(id),
-	due_date TIMESTAMP,
+	due_date TIMESTAMP NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	description TEXT,
 	UNIQUE(customer_id, name)

@@ -50,6 +50,8 @@ class User {
 			$this->errors['username']="Käyttäjätunnus ei voi olla tyhjä";
 		}else if(!preg_match("/^[a-z]+$/i",$this->username)){
 			$this->errors['username']="Käyttäjätunnus voi sisältää vain kirjaimia";		
+		}else if(strlen($this->username)>50){
+			$this->errors['username'] = "Käyttäjätunnus on liian pitkä, maksimipituus 50 merkkiä";
 		}else if(User::usernameExists($this->username)){
 			$this->errors['username']="Käyttäjätunnus on jo käytössä";
 		}else{
@@ -74,6 +76,8 @@ class User {
 		$this->full_name = htmlspecialchars($fullName);		
 		if(trim($this->full_name)==''){
 			$this->errors['full_name'] = "Kokonimi on pakollinen";
+		}else if(strlen($this->full_name)>255){
+			$this->errors['full_name'] = "Kokonimi on liian pitkä, maksimipituus 255 merkkiä";
 		}else{
 			unset($this->errors['full_name']);
 		}
@@ -84,6 +88,8 @@ class User {
 		$this->email = $email;		
 		if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
 			$this->errors['email'] = "Sähköpostiosoite on virheellinen";
+		}else if(strlen($this->email)>255){
+			$this->errors['email'] = "Sähköpostiosoite on liian pitkä, maksimipituus 255 merkkiä";
 		}else if(User::emailExists($this->email)){
 			$this->errors['email']="Sähköpostiosoite on jo käytössä";
 		}else{

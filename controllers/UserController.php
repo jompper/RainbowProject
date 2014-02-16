@@ -21,8 +21,7 @@ class UserController {
 				notice("Käyttäjää ei löytynyt");
 				redirect("user");
 			}
-			if(isset($_POST['username'])){
-				$user->setUsername($_POST['username']);
+			if(!empty($_POST)){
 				$user->setFullName($_POST['fullname']);
 				$user->setEmail($_POST['email']);
 				$user->setRole($_POST['role']);
@@ -34,7 +33,7 @@ class UserController {
 					redirect("user");
 				}
 			}
-			$this->renderForm("Muokkaa",$user);
+			$this->renderForm(true,$user);
 	}
 	
 	public function actionCreate(){
@@ -50,7 +49,7 @@ class UserController {
 					redirect("user");
 				}
 			}
-			$this->renderForm("Uusi käyttäjä", $user);
+			$this->renderForm(false, $user);
 	}
 	
 	public function actionDelete(){
@@ -64,8 +63,8 @@ class UserController {
 		redirect("user");
 	}
 	
-	private function renderForm($title, $user){
+	private function renderForm($edit, $user){
 		$roles = Role::getRoles();
-		render('userform', array("title" => $title, "user" => $user, "roles" => $roles, "errors" => $user->getErrors()));
+		render('userform', array("edit" => $edit, "user" => $user, "roles" => $roles, "errors" => $user->getErrors()));
 	}
 }

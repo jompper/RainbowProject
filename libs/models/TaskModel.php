@@ -46,4 +46,22 @@ class Task {
 	public function getDescription(){
 		return $this->description;
 	}
+	
+	public static function getProjectTasks($projectId){
+		$sql = "SELECT * FROM tasks WHERE project_id = :project_id ORDER BY name ASC";
+		$stmt = getDB()->prepare($sql);
+		$stmt->bindParam(":project_id", $projectId);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+	}
+	
+	public static function getUserTasks($userId){
+		$sql = "SELECT t.* FROM user_tasks ut JOIN tasks t ON ut.task_id = t.id WHERE ut.user_id = :user_id ORDER BY name ASC";
+		$stmt = getDB()->prepare($sql);
+		$stmt->bindParam(":user_id", $userId);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+	}
+	
+	
 }

@@ -1,6 +1,5 @@
 <?php
-require_once 'libs/db.php';
-require_once 'libs/models/user.php';
+require_once 'config.php';
 
 $users = User::getUsers();
 ?><!DOCTYPE HTML>

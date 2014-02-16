@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Justified Nav Template for Bootstrap</title>
+    <title><?= $data->title; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?=URL?>css/bootstrap.css" rel="stylesheet">
@@ -31,8 +31,8 @@
 		<h3 class="text-muted"><a href="<?=URL?>">Rainbow Project</a></h3>
 		<ul class="nav nav-justified">
           <li><a href="<?=URL?>">Etusivu</a></li>
-          <li><a href="#">Projektit</a></li>
-          <li><a href="#">Asiakkaat</a></li>
+          <li><a href="<?=URL?>project/">Projektit</a></li>
+          <li><a href="<?=URL?>customer/">Asiakkaat</a></li>
           <li><a href="<?=URL?>user/">Käyttäjät</a></li>
         </ul>
       </div>
