@@ -26,7 +26,6 @@ class ProjectController {
 				$project->setName($_POST['nimi']);
 				$project->setDescription($_POST['kuvaus']);
 				$project->setDueDate($_POST['maara_aika']);
-				$project->setCustomer($_POST['asiakas']);
 				$project->setPriority($_POST['prioriteetti']);
 				$project->setStatus($_POST['tila']);
 				if($project->save()){

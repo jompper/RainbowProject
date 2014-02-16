@@ -49,24 +49,28 @@ class Customer {
 	}
 
 	public function setName($name){	
-		$this->name = $name;
+		$this->name = htmlspecialchars($name);
 		if(trim($this->name)==''){
 			$this->errors['name']="Yrityksen nimi ei voi olla tyhjä";
+		}else if(strlen($this->name)>255){
+			$this->errors['name'] = "Nimi on liian pitkä, maksimipituus 255 merkkiä";
 		}else{
 			unset($this->errors['name']);
 		}
 	}
 
 	public function setBusinessId($business_id){
-			if($this->business_id == $business_id)return;
-			$this->business_id = htmlspecialchars($business_id);
-			if(trim($this->business_id)==''){
-					$this->errors['business_id']="Y-tunnus on pakollinen";
-			}else if(Customer::businessIdExists($this->business_id)){
-					$this->errors['business_id']="Järjestelmässä on jo yritys samalla Y-tunnuksella";
-			}else{
-					unset($this->errors['business_id']);
-			}
+		if($this->business_id == htmlspecialchars($business_id))return;
+		$this->business_id = htmlspecialchars($business_id);
+		if(trim($this->business_id)==''){
+			$this->errors['business_id']="Y-tunnus on pakollinen";
+		}else if(strlen($this->business_id)>20){
+			$this->errors['business_id'] = "Y-tunus on liian pitkä, maksimipituus 20 merkkiä";
+		}else if(Customer::businessIdExists($this->business_id)){
+			$this->errors['business_id']="Järjestelmässä on jo yritys samalla Y-tunnuksella";
+		}else{
+			unset($this->errors['business_id']);
+		}
 	}
 	
 	public function setEmail($email){

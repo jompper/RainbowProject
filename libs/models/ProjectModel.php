@@ -203,9 +203,10 @@ class Project {
 	}
 
 	private function update(){
-		$sql = "UPDATE projects SET priority_id = :priority_id, status_id = :status_id, due_date = :due_date, name = :name, description = :description WHERE id = :id";
+		$sql = "UPDATE projects SET customer_id = :customer_id, priority_id = :priority_id, status_id = :status_id, due_date = :due_date, name = :name, description = :description WHERE id = :id";
 		$stmt = getDB()->prepare($sql);
 		$stmt->bindParam(':id', $this->id);
+		$stmt->bindParam(':customer_id', $this->customer_id);
 		$stmt->bindParam(':priority_id', $this->priority_id);
 		$stmt->bindParam(':status_id', $this->status_id);
 		$stmt->bindParam(':due_date', $this->due_date);

@@ -38,6 +38,8 @@ class Priority {
 			$this->errors['name']="Kuvaus on pakollinen";
 		}else if(!preg_match("/^[a-z -]+$/i",$this->name)){
 			$this->errors['name']="Kuvaus voi sisältää vain kirjaimia tai merkkejä [- ]";		
+		}else if(strlen($this->name)>50){
+			$this->errors['name'] = "Kuvaus on liian pitkä, maksimipituus 50 merkkiä";
 		}else if(Priority::priorityExists($this->name)){
 			$this->errors['name']="Kuvaus on jo käytössä";
 		}else{

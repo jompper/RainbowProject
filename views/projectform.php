@@ -39,6 +39,7 @@
 				<input type="date" name="maara_aika" class="form-control" id="maara_aika" placeholder="Määräaika" value="<?=$data->project->getDueDate("Y-m-d")?>" required>
 			</div>
 		  </div>
+		  <?php if(!$data->edit): ?>
 		  <div class="form-group">
 			<label for="asiakas" class="col-sm-2 control-label">Asiakas</label>
 			<div class="col-sm-10">
@@ -55,6 +56,7 @@
 				</select>
 			</div>
 		  </div>
+		  <?php endif; ?>
 		  <div class="form-group">
 			<label for="prioriteetti" class="col-sm-2 control-label">Prioriteetti</label>
 			<div class="col-sm-10">
