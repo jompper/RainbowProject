@@ -3,8 +3,27 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^/]+)/([^/]+) index.php?controller=$1&action=$2 [L,QSA]
+RewriteRule ^([^/]+)/([0-9]+)/([^/]+)/? index.php?controller=$1&action=$3&id=$2 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/([0-9]+)/? index.php?controller=$1&action=update&id=$2 [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^/]+) index.php?controller=$1 [L,QSA]
+RewriteRule ^([^/]+)/([0-9]+)/? index.php?controller=$1&action=show&id=$2 [L,QSA]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/([^/]+)/? index.php?controller=$1&action=$2 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/? index.php?controller=$1&action=create [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/? index.php?controller=$1 [L,QSA]
